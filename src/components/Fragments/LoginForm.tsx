@@ -1,7 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useAuth } from "@/hooks/useAuth";
@@ -17,10 +24,10 @@ const loginFormSchema = z.object({
     .max(50, "Password maksimal 50 karakter"),
 });
 
-type LoginFromSchema = z.infer<typeof loginFormSchema>;
+type LoginFormSchema = z.infer<typeof loginFormSchema>;
 
 const LoginForm = () => {
-  const form = useForm<LoginFromSchema>({
+  const form = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
   });
 
@@ -53,6 +60,7 @@ const LoginForm = () => {
                 <FormControl>
                   <Input type="text" {...field} placeholder="John Doe" />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             );
           }}
@@ -66,6 +74,7 @@ const LoginForm = () => {
               <FormControl>
                 <Input type="password" {...field} placeholder="******" />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />

@@ -2,7 +2,14 @@ import { useAuth } from "@/hooks/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
@@ -54,6 +61,7 @@ const RegisterForm = () => {
               <FormControl>
                 <Input type="text" {...field} placeholder="John Doe" />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -66,6 +74,7 @@ const RegisterForm = () => {
               <FormControl>
                 <Input type="email" {...field} placeholder="user@example.com" />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -78,6 +87,7 @@ const RegisterForm = () => {
               <FormControl>
                 <Input type="password" {...field} placeholder="******" />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
