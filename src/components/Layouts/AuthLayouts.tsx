@@ -10,7 +10,7 @@ interface AuthLayoutProps {
 const AuthLayouts: FC<AuthLayoutProps> = ({ children, titleAuth, type }) => {
   return (
     <div className="min-h-screen flex justify-center items-center ">
-      <div className="p-8 flex flex-col  max-w-sm w-full">
+      <div className="p-8 flex flex-col max-w-sm w-full">
         <div className="mb-4">
           <h1 className="text-xl font-bold text-blue-500">{titleAuth}</h1>
           <p className="text-gray-500 text-sm">Please, enter your details</p>
@@ -28,7 +28,7 @@ const AuthLayouts: FC<AuthLayoutProps> = ({ children, titleAuth, type }) => {
 
           {type === "register" && (
             <p className="text-sm text-gray-500">
-              have an account?{" "}
+              Already have an account?{" "}
               <Link to="/" className="text-blue-500 hover:underline">
                 Sign in
               </Link>

@@ -1,6 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -12,23 +11,11 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useAuth } from "@/hooks/useAuth";
-
-const loginFormSchema = z.object({
-  username: z
-    .string()
-    .min(3, "Username minimal 3 karakter")
-    .max(20, "Username maksimal 20 karakter"),
-  password: z
-    .string()
-    .min(5, "Passowrd minimal 5 karakter")
-    .max(50, "Password maksimal 50 karakter"),
-});
-
-type LoginFormSchema = z.infer<typeof loginFormSchema>;
+import { type LoginFormSchema, LoginSchema } from "@/schemas/auth.schema";
 
 const LoginForm = () => {
   const form = useForm<LoginFormSchema>({
-    resolver: zodResolver(loginFormSchema),
+    resolver: zodResolver(LoginSchema),
   });
 
   const { control, handleSubmit } = form;

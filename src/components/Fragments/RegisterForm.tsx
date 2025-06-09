@@ -51,7 +51,7 @@ const RegisterForm = () => {
           {error}
         </div>
       )}
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="space-y-2">
         <FormField
           control={control}
           name="username"
